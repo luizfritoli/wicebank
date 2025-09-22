@@ -1,0 +1,21 @@
+.card {
+    width: 70%;
+    height: 7.7em;
+    background: #cdbdd8;
+    border: solid #000 0.2em;
+    border-radius: 0.7em; 
+    margin: 24px 0 24px 0;
+}
+
+.card-info {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   padding: 0.5em 0 0 1.2em;
+   color: #000;
+}
+
+.icon {
+    position: absolute;
+    margin: 2px 0 0 10px;
+}

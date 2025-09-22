@@ -1,0 +1,13 @@
+body {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  background: linear-gradient(to top, #eee2f8, #ece4f8);
+  min-height: 100vh;
+}
+
+.link-text {
+  color: #6f00ff;
+}
+
+

@@ -1,0 +1,52 @@
+.login-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-area {
+    background: #FFF;
+    height: 30%;
+    width: 90%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.inf-input {
+    border: solid #000 2px;
+    border-radius: 16px;
+    background: #ffffff;
+    height: 3em;
+    width: 60%;
+}
+
+.inf-input:focus {
+    outline: none;
+    border: solid rgb(181, 91, 255) 2px;
+}
+
+.inf-input::placeholder {
+    color: #000;
+    font-size: 16px;
+}
+
+.form-button {
+    border: solid #000 2px;
+    height: 3em;
+    border-radius: 8px;
+    width: 7em;
+    background: #a17ad3;
+}
