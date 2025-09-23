@@ -1,9 +1,13 @@
+import RegisterForm from "../components/register/RegisterForm";
+
 const Register = () => {
   return (
-    <div>
-      
-    </div>
-  )
+    <section className="login-section">
+      <div className="login-area">
+       <RegisterForm />
+      </div>
+    </section>
+  );
 }
 
 export default Register

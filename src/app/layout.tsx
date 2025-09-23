@@ -3,8 +3,9 @@ import { Roboto } from "next/font/google"
 
 import "./components/main/main.css"
 import "./components/main/Card/card.css"
-import "./components/login/login.css"
+import "./components/login/form.css"
 import "./globals.css";
+import "./components/main/Principal/principal.css"
 
 export const metadata: Metadata = {
   title: "WiceBank",

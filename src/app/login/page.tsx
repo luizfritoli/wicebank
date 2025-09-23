@@ -1,4 +1,3 @@
-import React from 'react'
 import LoginArea from '../components/login/LoginArea'
 
 const Login = () => {
