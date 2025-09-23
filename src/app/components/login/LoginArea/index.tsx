@@ -27,7 +27,7 @@ const LoginArea = () => {
         <input type="password" placeholder="Digite sua senha" className="inf-input" />
         <button type="button" className="form-button">Entrar</button>
       </form>
-      <span>Não tem uma conta? <Link href="/register" className="link-text">Registre-se aqui.</Link></span>
+      <span>Não tem uma conta? <Link href="/register" className="link-text">Registre-se aqui!</Link></span>
     </div>
   );
 }
