@@ -1,0 +1,55 @@
+
+.main-section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.initial {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.wice-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-weight: bolder;
+    gap: 45px;
+}
+
+.wice-start span {
+    text-align: center;
+    font-size: 17px;
+}
+
+.initial-options {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: start;
+    gap: 20%;
+}
+
+#wice-initial-image {
+    width: 300px;
+    height: 63px;
+}
+
+.initial-button {
+    background: #8600f3;
+    color: #fff;
+    border-radius: 2px 2px 8px 2px;
+    font-size: 15px;
+    font-weight: 400;
+    border: none;
+    height: 15%;
+    width: 26%;
+}

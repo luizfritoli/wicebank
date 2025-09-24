@@ -16,7 +16,7 @@ const LoginArea = () => {
 
   useEffect(() => {
      if (isLogged) {
-      router.push("/")
+      router.push("/bank")
      }
   }, [])
 

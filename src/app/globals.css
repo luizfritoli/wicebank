@@ -2,7 +2,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   margin: 0;
-  background: linear-gradient(to top, #eee2f8, #ece4f8);
+  background: linear-gradient(to top, #eee2f8, #f1ebfa);
   min-height: 100vh;
 }
 
