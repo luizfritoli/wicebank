@@ -1,0 +1,18 @@
+.footer {
+    background: #c5b7d8;
+    min-height: 17vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer p {
+    text-align: center;
+}
+
+.footer a img {
+    height: 60px;
+    width: 80px;
+}

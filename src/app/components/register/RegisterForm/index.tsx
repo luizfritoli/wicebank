@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { AiFillAlert } from "react-icons/ai";
 import { useState } from "react";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 type FormData = {
   name: string
@@ -47,7 +48,7 @@ const RegisterForm = () => {
   return (
     <form className="login-inputs">
         <p className="form-warn"><strong>ATENÇÃO:</strong> Por se tratar de um projeto pessoal, 
-        dados sensíveis não serão necessários. Ao mesmo tempo, não necessário
+        dados sensíveis não serão necessários. Ao mesmo tempo, não é necessário
          colocar uma senha real.</p>
       <input
         type="text"
@@ -136,6 +137,7 @@ const RegisterForm = () => {
       <button type="button" className="form-button" onClick={() => handleSubmit(onSubmit)()}>
         Registrar
       </button>
+      <span>Já tem uma conta? <Link href="/login" className="link-text">Entre aqui!</Link></span>
     </form>
   )
 }

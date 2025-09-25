@@ -8,7 +8,7 @@
 }
 
 .initial {
-    height: 100vh;
+    height: 83vh;
     width: 100%;
     display: grid;
     justify-content: center;
@@ -18,8 +18,9 @@
 .wice-start {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    padding-bottom: 20%;
     height: 100%;
     font-weight: bolder;
     gap: 45px;
@@ -34,8 +35,9 @@
     display: flex;
     justify-content: center;
     height: 100%;
-    align-items: start;
+    align-items: center;
     gap: 20%;
+    margin-bottom: 3em;
 }
 
 #wice-initial-image {
@@ -47,9 +49,19 @@
     background: #8600f3;
     color: #fff;
     border-radius: 2px 2px 8px 2px;
-    font-size: 15px;
+    font-size: 21px;
     font-weight: 400;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     border: none;
-    height: 15%;
-    width: 26%;
+    height: 2.6em;
+    width: 32%;
+    transition: all 0.4s ease-in-out;
+}
+
+.initial-button:hover {
+    background: #b96afa;
 }

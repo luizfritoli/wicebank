@@ -8,6 +8,7 @@ import "./components/login/form.css"
 import "./globals.css";
 import "./components/main/Principal/principal.css"
 import "./components/initial-area/initial.css"
+import "./components/foote/footer.css"
 
 export const metadata: Metadata = {
   title: "WiceBank",
