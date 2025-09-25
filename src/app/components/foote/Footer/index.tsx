@@ -1,9 +1,11 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <span>© Pensado e feito por <strong>Luiz Fritoli</strong>.</span>
+      <span>
+        © Pensado e feito por <strong>Luiz Fritoli</strong>.
+      </span>
       <p>
         <strong>TypeScript</strong>, <strong>CSS</strong> e <strong>React.js</strong> foram
         utilizados para a montagem da aplicação. Escrito com <strong>Visual Studio Code</strong>.
@@ -13,6 +15,6 @@ const Footer = () => {
       </a>
     </footer>
   )
-};
+}
 
-export default Footer;
+export default Footer

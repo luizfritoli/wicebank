@@ -1,9 +1,9 @@
-import InitialPage from "./components/initial-area/InitialPage"
+import InitialPage from './components/initial-area/InitialPage'
 
 const MainPage = () => {
   return (
     <section className="main-section">
-        <InitialPage />
+      <InitialPage />
     </section>
   )
 }

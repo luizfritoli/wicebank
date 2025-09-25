@@ -1,55 +1,54 @@
-"use client"
+'use client'
 
-import { User } from "@/lib/user";
-import { UserData } from "@/lib/user";
-import { useForm } from "react-hook-form";
-import { AiFillAlert } from "react-icons/ai";
-import { useState } from "react";
-import { redirect } from "next/navigation";
-import Link from "next/link";
+import { User } from '@/lib/user'
+import { UserData } from '@/lib/user'
+import { useForm } from 'react-hook-form'
+import { AiFillAlert } from 'react-icons/ai'
+import { useState } from 'react'
+import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
-type FormData = {
+export type FormData = {
   name: string
   email: string
   password: string
   confirmPassword: string
 }
 const RegisterForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormData>()
 
-    const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors },
-    } = useForm<FormData>()
+  const [sameEmail, setSameEmail] = useState<boolean>(false)
 
-    const [sameEmail, setSameEmail] = useState<boolean>(false)
+  const onSubmit = (data: FormData): void => {
+    const usersString = localStorage.getItem('users')
+    const usersArray = usersString ? JSON.parse(usersString) : []
 
-    const onSubmit = (data: FormData): void => {
-
-    const usersString = localStorage.getItem("users")
-      const usersArray = usersString ? JSON.parse(usersString) : [];
-
-      if (usersArray.find((user:UserData) => user.email === data.email)) {
-        setSameEmail(true)
-        return
-      }
-
-      setSameEmail(false)
-      const newUser = new User(data.name, data.email, data.password)
-
-      usersArray.push(newUser)
-
-      localStorage.setItem("users", JSON.stringify(usersArray))
-      
-      redirect("/login")
+    if (usersArray.find((user: UserData) => user.email === data.email)) {
+      setSameEmail(true)
+      return
     }
-    
+
+    setSameEmail(false)
+    const newUser = new User(data.name, data.email, data.password)
+
+    usersArray.push(newUser)
+
+    localStorage.setItem('users', JSON.stringify(usersArray))
+
+    redirect('/login')
+  }
+
   return (
     <form className="login-inputs">
-        <p className="form-warn"><strong>ATENÇÃO:</strong> Por se tratar de um projeto pessoal, 
-        dados sensíveis não serão necessários. Ao mesmo tempo, não é necessário
-         colocar uma senha real.</p>
+      <p className="form-warn">
+        <strong>ATENÇÃO:</strong> Por se tratar de um projeto pessoal, dados sensíveis não serão
+        necessários. Ao mesmo tempo, não é necessário colocar uma senha real.
+      </p>
       <input
         type="text"
         className="inf-input"
@@ -70,10 +69,15 @@ const RegisterForm = () => {
         type="email"
         className="inf-input"
         placeholder="Email"
-        {...register('email', { required: true, minLength: 6, pattern: {
-            value:  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            message: "Email inválido!"
-        } })}
+        {...register('email', {
+          required: true,
+          minLength: 6,
+          pattern: {
+            value:
+              /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            message: 'Email inválido!',
+          },
+        })}
       />
       {errors?.email?.type === 'required' && (
         <span className="error-message">
@@ -85,12 +89,11 @@ const RegisterForm = () => {
           <AiFillAlert /> O email é muito curto.
         </span>
       )}
-      {errors?.email?.type === "pattern" && (
+      {errors?.email?.type === 'pattern' && (
         <span>
-            <AiFillAlert /> Email inválido!
+          <AiFillAlert /> Email inválido!
         </span>
-      )
-      }
+      )}
       <input
         type="password"
         className="inf-input"
@@ -137,7 +140,12 @@ const RegisterForm = () => {
       <button type="button" className="form-button" onClick={() => handleSubmit(onSubmit)()}>
         Registrar
       </button>
-      <span>Já tem uma conta? <Link href="/login" className="link-text">Entre aqui!</Link></span>
+      <span>
+        Já tem uma conta?{' '}
+        <Link href="/login" className="link-text">
+          Entre aqui!
+        </Link>
+      </span>
     </form>
   )
 }

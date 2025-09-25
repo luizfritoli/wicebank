@@ -1,64 +1,70 @@
 .login-section {
-    min-height: 83vh;
-    height: auto;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  min-height: 83vh;
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-area {
-    background: #FFF;
-    height: 30%;
-    width: 90%;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0 10px 0;
+  background: #fff;
+  height: 30%;
+  width: 90%;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 10px 0;
 }
 
 .login-inputs {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
 }
 
 .inf-input {
-    border: solid #000 2px;
-    border-radius: 16px;
-    background: #ffffff;
-    height: 3em;
-    width: 60%;
+  border: solid #000 2px;
+  border-radius: 16px;
+  background: #ffffff;
+  height: 3em;
+  width: 60%;
 }
 
 .inf-input:focus {
-    outline: none;
-    border: solid rgb(181, 91, 255) 2px;
+  outline: none;
+  border: solid rgb(181, 91, 255) 2px;
 }
 
 .inf-input::placeholder {
-    color: #000;
-    font-size: 16px;
+  color: #000;
+  font-size: 16px;
 }
 
 .form-button {
-    border: solid #000 2px;
-    height: 3em;
-    border-radius: 8px;
-    font-size: 15px;
-    width: 7em;
-    background: #a17ad3;
+  border: solid #000 2px;
+  height: 3em;
+  border-radius: 8px;
+  font-size: 15px;
+  width: 7em;
+  background: #a17ad3;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.form-button:hover {
+    background: #d8bffc;
 }
 
 .error-message {
-    color: #ff0000;
-    text-align: center;
+  color: #ff0000;
+  text-align: center;
 }
 
 .form-warn {
-    text-align: center;
+  text-align: center;
 }
