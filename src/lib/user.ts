@@ -2,6 +2,7 @@ export type UserData = {
   name: string
   email: string
   password: string
+  balance:number
 }
 
 export class User {

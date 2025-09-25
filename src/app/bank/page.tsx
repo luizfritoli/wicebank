@@ -1,29 +1,31 @@
 'use client'
 
-import { act, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Card from '../components/main/Card'
 import Principal from '../components/main/Principal'
 import { User } from '@/lib/user'
+import { UserData } from '@/lib/user'
 
 const Page = () => {
   const router = useRouter()
 
   const [isLogged, setIsLogged] = useState(true)
+  const [actualUser, setActualUser] = useState<UserData | null>(null)
 
-  const actualUserStored = localStorage.getItem("actualUser")
-  const actualUserParsed = actualUserStored ? JSON.parse(actualUserStored) : null
-
-  if (actualUserParsed === null) {
-    router.push("/login")
-  }
-
-  const actualUser = new User(actualUserParsed.user, actualUserParsed.email, actualUserParsed.password)
 
   useEffect(() => {
     const stored = localStorage.getItem('isLogged')
+    const actualUserStored = localStorage.getItem("actualUser")
+    const actualUserParsed = actualUserStored ? JSON.parse(actualUserStored) : null
+    if (actualUserParsed === null) {
+    router.push("/login")
+    return
+   }
+    setActualUser(new User(actualUserParsed.user, actualUserParsed.email, actualUserParsed.password, actualUserParsed.balance))
     setIsLogged(JSON.parse(stored || 'false'))
   }, [])
+
 
   useEffect(() => {
     if (!isLogged) {
@@ -33,7 +35,7 @@ const Page = () => {
 
   return (
     <section className="main">
-      <Principal balance={actualUser.balance} />
+      <Principal balance={actualUser?.balance ?? 0} />
       <Card title="Nome" desc="Conta corrente" />
       <Card title="Extrato" desc="Veja suas últimas transferências!" icon="extract" />
       <Card title="Transferir" desc="Deseja transferir seu saldo?" icon="transfer" />
