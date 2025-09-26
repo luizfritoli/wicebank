@@ -13,7 +13,11 @@ export class User {
     public balance:number = 1000
   ) {}
 
-  get nome(): string {
+  get showName():string {
     return this.name
+  }
+
+  get showBalance(): number {
+    return this.balance
   }
 }

@@ -65,7 +65,7 @@ const LoginArea = () => {
     const verifyUser = usersArray.find((user:UserData) => user.email === state.email)
 
     if (verifyUser && verifyUser.password === state.password) {
-      const actualUser = new User(verifyUser.user, verifyUser.email, verifyUser.password)
+      const actualUser = new User(verifyUser.name, verifyUser.email, verifyUser.password)
       localStorage.setItem("actualUser", JSON.stringify(verifyUser))
       setIsLogged(true)
       localStorage.setItem("isLogged", "true")

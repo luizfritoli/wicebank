@@ -7,12 +7,13 @@ type PropTypes = {
   title: string
   desc: string
   balance?: number
+  onClick?: () => void
   icon?: string
 }
 
-const Card = ({ title, desc, icon }: PropTypes) => {
+const Card = ({ title, desc, icon, onClick }: PropTypes) => {
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
       <div className="card-info">
         <h2>
           {title}{' '}
