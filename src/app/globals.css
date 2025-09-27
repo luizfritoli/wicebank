@@ -14,3 +14,10 @@ body::selection {
 .link-text {
   color: #6f00ff;
 }
+
+.return-icon {
+  color: #ff0000;
+  height: 2em;
+  width: 200px;
+  cursor: pointer;
+}

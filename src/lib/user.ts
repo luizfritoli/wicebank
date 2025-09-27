@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation"
+
 export type UserData = {
   name: string
   email: string
@@ -19,5 +21,16 @@ export class User {
 
   get showBalance(): number {
     return this.balance
+  }
+
+  get showEmail():string {
+    return this.email
+  }
+
+  transferMoney(email:string, users:UserData[]):void {
+    const userToTransfer = users.find((user) => user.email === email)
+    // if (userToTransfer && userToTransfer !== this.email) {
+      
+   // }
   }
 }

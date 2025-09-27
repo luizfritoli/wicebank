@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import Footer from './components/foote/Footer'
+import { UserProvider } from '@/context/UserContext'
 
 import './components/main/main.css'
 import './components/main/Card/card.css'
@@ -9,6 +10,7 @@ import './globals.css'
 import './components/main/Principal/principal.css'
 import './components/initial-area/initial.css'
 import './components/foote/footer.css'
+import "./components/userinfo/userinfo.css"
 
 export const metadata: Metadata = {
   title: 'WiceBank',
@@ -28,7 +30,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={roboto.className}>
+        <UserProvider>
         {children}
+        </UserProvider>
         <Footer />
       </body>
     </html>
