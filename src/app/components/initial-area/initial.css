@@ -59,6 +59,7 @@
   height: 2.6em;
   width: 32%;
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 .initial-button:hover {

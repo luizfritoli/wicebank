@@ -6,15 +6,18 @@ import { User } from "@/lib/user"
 type UserContextType = {
   actualUser: User | null
   setActualUser: (user: User | null) => void
+  transferTarget:string,
+  setTransferTarget: (email:string) => void
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined)
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [actualUser, setActualUser] = useState<User | null>(null)
+  const [transferTarget, setTransferTarget] = useState<string>("")
 
   return (
-    <UserContext.Provider value={{ actualUser, setActualUser }}>
+    <UserContext.Provider value={{ actualUser, setActualUser, transferTarget, setTransferTarget }}>
       {children}
     </UserContext.Provider>
   )

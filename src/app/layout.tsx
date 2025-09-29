@@ -11,6 +11,7 @@ import './components/main/Principal/principal.css'
 import './components/initial-area/initial.css'
 import './components/foote/footer.css'
 import "./components/userinfo/userinfo.css"
+import "./components/transfer-area/transfer.css"
 
 export const metadata: Metadata = {
   title: 'WiceBank',

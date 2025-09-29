@@ -27,10 +27,22 @@ export class User {
     return this.email
   }
 
-  transferMoney(email:string, users:UserData[]):void {
-    const userToTransfer = users.find((user) => user.email === email)
-    // if (userToTransfer && userToTransfer !== this.email) {
-      
-   // }
-  }
+  transferMoney(email: string, users: UserData[], money: number): void {
+  if (!email) throw new Error("Usuário destinatário não informado")
+  const recipient = users.find(u => u.email === email)
+  if (!recipient) throw new Error("Usuário não encontrado")
+  if (money <= 0) throw new Error("Valor inválido")
+  if (this.balance < money) throw new Error("Saldo insuficiente")
+
+
+  recipient.balance += money
+
+
+  const sender = users.find(u => u.email === this.email)
+  if (sender) sender.balance = this.balance - money
+  this.balance -= money
+
+
+  localStorage.setItem("users", JSON.stringify(users))
+}
 }
