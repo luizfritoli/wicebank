@@ -21,10 +21,13 @@ const UserInfo = () => {
           <strong>Email:</strong> {actualUser?.showEmail}
         </p>
         <p>
+          <strong>Saldo:</strong> {actualUser?.showBalance}
+        </p>
+        <p>
           <strong>Tipo de conta:</strong> Corrente
         </p>
         <span>
-          <AiOutlineRollback className="return-icon" onClick={() => router.push("/bank")} />
+          <AiOutlineRollback className="return-icon" onClick={() => router.push('/bank')} />
         </span>
       </div>
     </div>

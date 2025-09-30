@@ -26,26 +26,29 @@ const Page = () => {
     setIsLogged(JSON.parse(stored || 'false'))
   }, [])
 
-
   useEffect(() => {
     if (!isLogged) {
       router.push('/login')
     }
   }, [isLogged])
 
-    const goToUserInfo = () => {
+    const goToUserInfo = ():void => {
     router.push("/userinfo")
   }
 
-    const goToTransfer = () => {
+    const goToTransfer = ():void => {
       router.push("/transfer")
+    }
+
+    const goToExtract = ():void => {
+      router.push("/extract")
     }
 
   return (
     <section className="main">
       <Principal balance={actualUser?.showBalance ?? 0} />
       <Card title={actualUser?.showName ?? "No name"} desc="Conta corrente" onClick={goToUserInfo} />
-      <Card title="Extrato" desc="Veja suas últimas transferências!" icon="extract" onClick={goToTransfer} />
+      <Card title="Extrato" desc="Veja suas últimas transferências!" icon="extract" onClick={goToExtract} />
       <Card title="Transferir" desc="Deseja transferir seu saldo?" icon="transfer" onClick={goToTransfer} />
       <Card title="Receber" desc="Receba dinheiro aqui!" icon="receive" onClick={goToUserInfo} />
       <Card title="Sair" desc="Encerre sua sessão." icon="leave" onClick={goToUserInfo} />

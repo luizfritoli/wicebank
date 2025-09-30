@@ -4,13 +4,14 @@ import { useEffect, useState } from "react"
 import { UserData } from '@/lib/user'
 import { useUser } from "@/context/UserContext"
 import { useRouter } from "next/navigation"
+import { AiOutlineRollback } from "react-icons/ai"
 
 const FinishTransfer = () => {
 
       const router = useRouter()
       const [usersArray, setUsersArray] = useState<UserData[]>([])
       const [value, setValue] = useState<number>(0)
-      const { actualUser, transferTarget } = useUser()
+      const { actualUser, transferTarget, setActualUser } = useUser()
       const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
         useEffect(() => {
@@ -22,7 +23,8 @@ const completeTransfer = (): void => {
   try {
     actualUser?.transferMoney(transferTarget!, usersArray, value)
     setErrorMessage(null)
-    alert("Transferência concluída!")
+    setActualUser(actualUser)
+    router.push("/finished-transfer")
   } catch (error: any) {
     setErrorMessage(error.message)
   }
@@ -38,6 +40,7 @@ const completeTransfer = (): void => {
       </div>
       {errorMessage && <span className="error-message">{errorMessage}</span>}
         <button type="button" className="transfer-button" onClick={completeTransfer}>Transferir</button>
+        <AiOutlineRollback className="return-icon" onClick={() => router.push("/transfer")} />
     </div>
     </section>
   )

@@ -1,10 +1,21 @@
-import { redirect } from "next/navigation"
+import { v4 as uuidv4 } from "uuid"
+
+interface Extract {
+  id:string,
+  type: "sent" | "received"
+  moneyTransfered?:number
+  moneyReceived?:number
+  transferedTo?:string
+  transferedFrom?:string
+  actualBalance:number
+}
 
 export type UserData = {
   name: string
   email: string
   password: string
   balance:number
+  extract: Extract[]
 }
 
 export class User {
@@ -12,7 +23,8 @@ export class User {
     public name: string,
     public email: string,
     public password: string,
-    public balance:number = 1000
+    public balance:number = 1000,
+    public extract:Extract[] = []
   ) {}
 
   get showName():string {
@@ -27,22 +39,43 @@ export class User {
     return this.email
   }
 
-  transferMoney(email: string, users: UserData[], money: number): void {
-  if (!email) throw new Error("Usuário destinatário não informado")
-  const recipient = users.find(u => u.email === email)
-  if (!recipient) throw new Error("Usuário não encontrado")
-  if (money <= 0) throw new Error("Valor inválido")
-  if (this.balance < money) throw new Error("Saldo insuficiente")
+  transferMoney(email: string, users: UserData[], money: number): UserData[] {
+    const senderIndex = users.findIndex((u) => u.email === this.email)
+    const recipientIndex = users.findIndex((u) => u.email === email)
 
+    if (senderIndex === -1 || recipientIndex === -1) throw new Error('Usuário não encontrado')
+    if (money <= 0) throw new Error('Valor inválido')
+    if (users[senderIndex].balance < money) throw new Error('Saldo insuficiente')
 
-  recipient.balance += money
+    // atualiza saldos
+    users[senderIndex].balance -= money
+    users[recipientIndex].balance += money
 
+    // cria transações
+    const sentTx: Extract = {
+      id: uuidv4(),
+      type: 'sent',
+      moneyTransfered: money,
+      transferedTo: email,
+      actualBalance: users[senderIndex].balance,
+    }
 
-  const sender = users.find(u => u.email === this.email)
-  if (sender) sender.balance = this.balance - money
-  this.balance -= money
+    const receivedTx: Extract = {
+      id: uuidv4(),
+      type: 'received',
+      moneyReceived: money,
+      transferedFrom: this.email,
+      actualBalance: users[recipientIndex].balance,
+    }
 
+    // adiciona ao extrato
+    users[senderIndex].extract = [...(users[senderIndex].extract ?? []), sentTx]
+    users[recipientIndex].extract = [...(users[recipientIndex].extract ?? []), receivedTx]
 
-  localStorage.setItem("users", JSON.stringify(users))
-}
+    // salva no localStorage
+    localStorage.setItem('users', JSON.stringify(users))
+    localStorage.setItem('actualUser', JSON.stringify(users[senderIndex]))
+
+    return users
+  }
 }
