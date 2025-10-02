@@ -1,0 +1,96 @@
+.extract-section {
+  min-height: 83vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2em 0;
+}
+
+.extract-section h2 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.extract-area {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  width: 90%;
+  max-width: 900px;
+  padding: 1em;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.extract-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.extract-list li {
+  background: #e6e6e6;
+  list-style: none;
+  width: 60%;            
+  border-radius: 8px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  transition: width 0.3s ease;
+}
+
+.extract-wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.extract-date {
+  text-align: center;
+  font-weight: 900;
+  color: #333;
+}
+
+.return-icon {
+  margin-top: 1em;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: block;
+}
+
+.money-transfered {
+  color: #f0000f;
+}
+
+.money-received {
+  color: #2b880e;
+}
+
+@media (min-width: 768px) {
+  .extract-list li {
+    width: 90%; 
+    max-width: 800px; 
+  }
+
+  .extract-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+
+}

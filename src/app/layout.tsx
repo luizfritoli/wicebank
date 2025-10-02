@@ -10,8 +10,9 @@ import './globals.css'
 import './components/main/Principal/principal.css'
 import './components/initial-area/initial.css'
 import './components/foote/footer.css'
-import "./components/userinfo/userinfo.css"
-import "./components/transfer-area/transfer.css"
+import './components/userinfo/userinfo.css'
+import './components/transfer-area/transfer.css'
+import './components/extract/extract.css'
 
 export const metadata: Metadata = {
   title: 'WiceBank',
@@ -31,9 +32,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={roboto.className}>
-        <UserProvider>
-        {children}
-        </UserProvider>
+        <UserProvider>{children}</UserProvider>
         <Footer />
       </body>
     </html>

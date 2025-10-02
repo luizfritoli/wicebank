@@ -1,14 +1,13 @@
-"use client"
+'use client'
 
-import { useUser } from "@/context/UserContext"
-import { AiOutlineRollback } from "react-icons/ai";
-import { useRouter } from "next/navigation";
+import { useUser } from '@/context/UserContext'
+import { AiOutlineRollback } from 'react-icons/ai'
+import { useRouter } from 'next/navigation'
 
 const UserInfo = () => {
+  const router = useRouter()
 
-    const router = useRouter()
-
-    const { actualUser } = useUser()
+  const { actualUser } = useUser()
 
   return (
     <div className="user-info-area">
@@ -21,12 +20,12 @@ const UserInfo = () => {
           <strong>Email:</strong> {actualUser?.showEmail}
         </p>
         <p>
-          <strong>Saldo:</strong> {actualUser?.showBalance}
+          <strong>Saldo:</strong> R$ {actualUser?.showBalance.toFixed(2)}
         </p>
         <p>
           <strong>Tipo de conta:</strong> Corrente
         </p>
-        <span>
+        <span className="extract-return-wrapper">
           <AiOutlineRollback className="return-icon" onClick={() => router.push('/bank')} />
         </span>
       </div>

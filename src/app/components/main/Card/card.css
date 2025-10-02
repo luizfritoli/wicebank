@@ -21,3 +21,26 @@
   position: absolute;
   margin: 2px 0 0 10px;
 }
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    justify-items: center; 
+  }
+
+  .card {
+    min-height: 10em;
+    width: 80%;
+  }
+}
+
+

@@ -7,8 +7,21 @@
   justify-content: center;
   align-items: center;
   gap: 16px;
+  margin-top: 0;
 }
 
 .view-money {
   font-size: 40px;
+}
+
+@media (min-width: 900px) {
+  .principal {
+  height: 120px;
+  }
+}
+
+@media (min-height: 1000px) {
+  .principal {
+  height: 250px;
+  }
 }

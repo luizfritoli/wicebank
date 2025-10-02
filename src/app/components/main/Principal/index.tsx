@@ -1,13 +1,12 @@
 type Props = {
-  balance:number
+  balance: number
 }
 
-
-const Principal = ({ balance}:Props ) => {
+const Principal = ({ balance }: Props) => {
   return (
     <div className="principal">
       <span>IMAGEM DO WICEBANK</span>
-      <span className="view-money">R$ {balance}</span>
+      <span className="view-money">R$ {balance.toFixed(2)}</span>
     </div>
   )
 }

@@ -65,3 +65,18 @@
 .initial-button:hover {
   background: #b96afa;
 }
+
+@media (min-width: 1000px) {
+  .initial {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .wice-start {
+    margin-top: 150px;
+    justify-content: center;
+  }
+
+  .initial-options {
+    margin-top: 150px;
+  }
+}

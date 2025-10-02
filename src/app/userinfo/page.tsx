@@ -1,4 +1,4 @@
-import UserInfo from "../components/userinfo/UserInfo"
+import UserInfo from '../components/userinfo/UserInfo'
 
 const UserInfoPage = () => {
   return (

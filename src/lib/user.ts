@@ -1,20 +1,21 @@
-import { v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from 'uuid'
 
 interface Extract {
-  id:string,
-  type: "sent" | "received"
-  moneyTransfered?:number
-  moneyReceived?:number
-  transferedTo?:string
-  transferedFrom?:string
-  actualBalance:number
+  id: string
+  type: 'sent' | 'received'
+  moneyTransfered?: number
+  moneyReceived?: number
+  transferedTo?: string
+  date: Date
+  transferedFrom?: string
+  actualBalance: number
 }
 
 export type UserData = {
   name: string
   email: string
   password: string
-  balance:number
+  balance: number
   extract: Extract[]
 }
 
@@ -23,11 +24,11 @@ export class User {
     public name: string,
     public email: string,
     public password: string,
-    public balance:number = 1000,
-    public extract:Extract[] = []
+    public balance: number = 1000,
+    public extract: Extract[] = [],
   ) {}
 
-  get showName():string {
+  get showName(): string {
     return this.name
   }
 
@@ -35,8 +36,34 @@ export class User {
     return this.balance
   }
 
-  get showEmail():string {
+  get showEmail(): string {
     return this.email
+  }
+
+  static increaseBalance(user: UserData, money: number, users: UserData[]): UserData[] {
+    const userIndex = users.findIndex((u) => u.email === user.email)
+    if (userIndex === -1) throw new Error('Usuário não encontrado')
+    if (money <= 0) throw new Error('Valor inválido')
+
+    users[userIndex].balance += money
+
+    const now = new Date(Date.now())
+
+    const receivedTx: Extract = {
+      id: uuidv4(),
+      type: 'received',
+      moneyReceived: money,
+      transferedFrom: 'WiceBank',
+      date: now,
+      actualBalance: users[userIndex].balance,
+    }
+
+    users[userIndex].extract = [...(users[userIndex].extract ?? []), receivedTx]
+
+    localStorage.setItem('users', JSON.stringify(users))
+    localStorage.setItem('actualUser', JSON.stringify(users[userIndex]))
+
+    return users
   }
 
   transferMoney(email: string, users: UserData[], money: number): UserData[] {
@@ -47,15 +74,16 @@ export class User {
     if (money <= 0) throw new Error('Valor inválido')
     if (users[senderIndex].balance < money) throw new Error('Saldo insuficiente')
 
-    // atualiza saldos
     users[senderIndex].balance -= money
     users[recipientIndex].balance += money
 
-    // cria transações
+    const now = new Date(Date.now())
+
     const sentTx: Extract = {
       id: uuidv4(),
       type: 'sent',
       moneyTransfered: money,
+      date: now,
       transferedTo: email,
       actualBalance: users[senderIndex].balance,
     }
@@ -64,15 +92,14 @@ export class User {
       id: uuidv4(),
       type: 'received',
       moneyReceived: money,
+      date: now,
       transferedFrom: this.email,
       actualBalance: users[recipientIndex].balance,
     }
 
-    // adiciona ao extrato
     users[senderIndex].extract = [...(users[senderIndex].extract ?? []), sentTx]
     users[recipientIndex].extract = [...(users[recipientIndex].extract ?? []), receivedTx]
 
-    // salva no localStorage
     localStorage.setItem('users', JSON.stringify(users))
     localStorage.setItem('actualUser', JSON.stringify(users[senderIndex]))
 
