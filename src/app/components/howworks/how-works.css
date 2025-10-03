@@ -1,0 +1,18 @@
+.how-works-section {
+    display: flex;
+    min-height: 100vh;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.how-works-area {
+  width: 80%;
+  background-color: #FFF;
+  border-radius: 16px;
+  margin: 3% 0 10% 0;
+}
+
+.how-works-area h2, h3, p {
+  padding-left: 17px;
+}

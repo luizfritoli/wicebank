@@ -12,6 +12,7 @@
   height: 30%;
   width: 90%;
   border-radius: 8px;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,4 +68,8 @@
 
 .form-warn {
   text-align: center;
+}
+
+.login-area span {
+  margin-top: 10px;
 }

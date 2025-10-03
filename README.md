@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WiceBank
 
-## Getting Started
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-First, run the development server:
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Next JS](https://img.shields.io/badge/next.js-%23000000.svg?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+
+## Saiba mais sobre o WiceBank
+
+### O que é o WiceBank
+
+O WiceBank é uma simulação de um banco digital, onde se possui funções como transferir
+saldo, receber saldo e ver o histórico das transações, com as mesmas sendo simples e
+intuitivas, podendo ser facilmente executadas pelo usuário.
+
+### Funcionalidades do WiceBank
+
+ **Transferir:** É possível transferir o saldo para outros usuários, utilizando o email. Disponível na opção transferir.
+
+ **Receber:** Na opção receber, o usuário especifica quanto de saldo fictício ele quer receber.
+
+ **Extrato:** A funcionalidade extrato permite ao usuário ver o histórico de transferências ou recebimentos.
+
+
+## Demonstração
+
+<p>
+  <img src="./public/wice-bank-img.png" width="30%" height="450px" />
+  <img src="./public/wice-bank-img-2.png" width="30%" height="450px" />
+  <img src="./public/wice-bank-img-3.png" width="30%" height="450px" />
+</p>
+
+[Acesse a versão online aqui](https://wicebank.vercel.app)
+
+
+## Instruções de instalação
+
+### Pré-requisitos
+
+#### Node (18.x ou superior)
+
+#### Npm (Junto com o Node)
+
+#### Git (Para clonagem do projeto)
+
+---
+
+1. Crie uma pasta no computador, e rode com um terminal:
+
+```bash
+git clone https://github.com/luizfritoli/wicebank.git
+```
+
+2. Após isso, rode:
+
+```bash
+cd wicebank
+```
+
+3. Por fim, instale as dependências:
+
+```bash
+npm install
+```
+
+## Instruções de uso
+
+1. Para rodar o projeto, abra o terminal do VS Code e use:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto abrirá de forma automática. Ou entre em http://localhost:3000
+após o uso do comando.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Na seção inicial, é possível clicar em "Entrar", caso já tenha uma conta
+registrada, ou, "Não tenho uma conta", caso não tenha uma conta. Ao clicar em um dos
+botões, será redirecionado para um formulário, onde basta preencher as informações para
+registrar ou entrar.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Ao colocar as informações no formulário para entrar, o usuário será redirecionado ao banco,
+onde poderá executar as funcionalidades simples de um banco digital, como transferir, receber e
+ver extrato.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Para sair, ou mudar de conta (para testar funcionalidades da aplicação), basta clicar no último card
+do banco "Sair". Assim, o usuário será redirecionado para a área de entrar, local onde poderá entrar com
+outra conta para analisar funcionalidades.

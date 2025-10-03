@@ -24,7 +24,7 @@ export class User {
     public name: string,
     public email: string,
     public password: string,
-    public balance: number = 1000,
+    public balance: number = 0,
     public extract: Extract[] = [],
   ) {}
 

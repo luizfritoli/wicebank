@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Card from '../components/main/Card'
 import Principal from '../components/main/Principal'
@@ -28,6 +28,7 @@ const Page = () => {
         actualUserParsed.email,
         actualUserParsed.password,
         actualUserParsed.balance,
+        actualUserParsed.extract,
       ),
     )
   }, [])
@@ -54,6 +55,7 @@ const Page = () => {
     setIsLogged(false)
     localStorage.setItem('actualUser', JSON.stringify(null))
     localStorage.setItem('isLogged', JSON.stringify(false))
+    router.push("/login")
   }
 
   return (

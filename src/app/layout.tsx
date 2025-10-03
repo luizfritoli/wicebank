@@ -13,6 +13,7 @@ import './components/foote/footer.css'
 import './components/userinfo/userinfo.css'
 import './components/transfer-area/transfer.css'
 import './components/extract/extract.css'
+import "./components/howworks/how-works.css"
 
 export const metadata: Metadata = {
   title: 'WiceBank',

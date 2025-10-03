@@ -1,5 +1,6 @@
 .main-section {
-  height: 100%;
+  min-height: 90%;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -7,7 +8,8 @@
 }
 
 .initial {
-  height: 83vh;
+  min-height: 83vh;
+  height: auto;
   width: 100%;
   display: grid;
   justify-content: center;
@@ -40,8 +42,8 @@
 }
 
 #wice-initial-image {
-  width: 300px;
-  height: 63px;
+  width: 350px;
+  height: 87.5px;
 }
 
 .initial-button {
@@ -78,5 +80,14 @@
 
   .initial-options {
     margin-top: 150px;
+  }
+
+
+}
+
+@media (min-width: 638px) {
+  #wice-initial-image {
+  width: 600px;
+  height: 150px;
   }
 }

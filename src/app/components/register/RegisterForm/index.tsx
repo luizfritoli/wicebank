@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { AiFillAlert } from 'react-icons/ai'
 import { useState } from 'react'
 import { redirect } from 'next/navigation'
-import Link from 'next/link'
+
 
 export type FormData = {
   name: string
@@ -140,12 +140,6 @@ const RegisterForm = () => {
       <button type="button" className="form-button" onClick={() => handleSubmit(onSubmit)()}>
         Registrar
       </button>
-      <span>
-        Já tem uma conta?{' '}
-        <Link href="/login" className="link-text">
-          Entre aqui!
-        </Link>
-      </span>
     </form>
   )
 }

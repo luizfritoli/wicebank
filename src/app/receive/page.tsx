@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useUser } from '@/context/UserContext'
 import { useRouter } from 'next/navigation'
 import { User, UserData } from '@/lib/user'
+import { AiOutlineRollback } from 'react-icons/ai'
 
 const Receive = () => {
   const { actualUser, setActualUser, isLogged, setIsLogged } = useUser()
@@ -66,6 +67,7 @@ const Receive = () => {
         <button type="button" className="transfer-button" onClick={getMoney}>
           Receber
         </button>
+        <AiOutlineRollback className="return-icon" onClick={() => router.push('/bank')} />
       </div>
     </section>
   )

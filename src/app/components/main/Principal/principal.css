@@ -1,17 +1,23 @@
 .principal {
-  height: 100px;
+  min-height: 100px;
+  height: auto;
   width: 100%;
-  background-color: rgb(193, 167, 202);
+  background-color: #bd9cee;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
   margin-top: 0;
 }
 
 .view-money {
   font-size: 40px;
+}
+
+#bank-wice-img {
+  margin-top: 10px;
+  width: 230px;
+  height: 57.5px;
 }
 
 @media (min-width: 900px) {
